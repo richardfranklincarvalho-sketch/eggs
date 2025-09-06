@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sistema de Design para Controle de Produção de Ovos
+Dark Theme Priorizado - Otimizado para economia de créditos
+*/
+
+@layer base {
+  /* LIGHT THEME - Paleta das imagens */
+  :root {
+    color-scheme: light;
+    
+    /* Light Theme - Baseado na paleta das imagens fornecidas */
+    --bg-main: 0 0% 100%;            /* #FFFFFF - Branco puro */
+    --bg-surface: 28 27% 94%;        /* #FEEAF0 - Bege muito claro */
+    --text-primary: 25 85% 15%;      /* #241705 - Marrom escuro */
+    --text-secondary: 20 35% 45%;    /* Marrom médio derivado */
+    
+    /* Accent Colors - Baseados na paleta das imagens */
+    --accent-1: 120 60% 35%;         /* Verde agricultura mantido */
+    --accent-2: 28 95% 52%;          /* #F09410 - Laranja/amarelo vibrante */
+    --accent-3: 20 75% 42%;          /* #BC430D - Marrom avermelhado */
+    --danger: 0 75% 55%;             /* Vermelho para alertas */
+    
+    /* Shadcn compatibility */
+    --background: var(--bg-main);
+    --foreground: var(--text-primary);
+    --card: var(--bg-surface);
+    --card-foreground: var(--text-primary);
+    --popover: var(--bg-surface);
+    --popover-foreground: var(--text-primary);
+    --primary: var(--accent-1);
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 28 95% 62%;      /* Versão mais clara do laranja */
+    --secondary: 28 20% 85%;         /* #F0D0C7 - Bege rosado claro */
+    --secondary-foreground: var(--text-primary);
+    --muted: 28 15% 92%;             /* Variação mais clara do bege */
+    --muted-foreground: var(--text-secondary);
+    --accent: var(--accent-2);       /* Laranja vibrante como accent */
+    --accent-foreground: 0 0% 98%;
+    --destructive: var(--danger);
+    --destructive-foreground: 0 0% 98%;
+    --border: 28 15% 85%;            /* Bege claro para bordas */
+    --input: 28 10% 90%;             /* Bege muito claro para inputs */
+    --ring: var(--accent-2);         /* Laranja para focus */
+    --success: var(--accent-1);      /* Verde para sucesso */
+    --warning: var(--accent-2);      /* Laranja para avisos */
+    
+    /* Phase colors - baseados na paleta */
+    --phase-recria: 214 76% 66%;          /* Azul suave para recria */
+    --phase-crescimento: var(--accent-1); /* Verde para crescimento */
+    --phase-producao: var(--accent-2);    /* Laranja para produção */
+    
+    /* Chart colors aligned with NOVOgen theme */
+    --chart-1: 214 76% 66%;          /* Azul recria */
+    --chart-2: 142 71% 45%;          /* Verde crescimento */
+    --chart-3: 32 95% 68%;           /* Laranja produção */
+    --chart-4: 43 74% 66%;           /* Amarelo métricas */
+    --chart-5: 340 75% 55%;          /* Rosa alertas */
+
+    --radius: 0.75rem;
+    --sidebar-background: 28 20% 94%;     /* Bege muito claro */
+    --sidebar-foreground: var(--text-primary);
+    --sidebar-primary: var(--accent-2);   /* Laranja como primary */
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 28 15% 88%;         /* Bege médio */
+    --sidebar-accent-foreground: var(--text-primary);
+    --sidebar-border: 28 12% 82%;         /* Bege para bordas */
+    --sidebar-ring: var(--accent-2);
+  }
+
+  /* DARK THEME - Preto e cinza suave */
+  html.dark,
+  .dark {
+    color-scheme: dark;
+    
+    /* Dark Main Colors - Preto com cinza suave */
+    --bg-main: 0 0% 0%;              /* Preto puro */
+    --bg-surface: 0 0% 5%;           /* Cinza muito escuro para cards */
+    --text-primary: 0 0% 90%;        /* Texto principal alto contraste */
+    --text-secondary: 0 0% 65%;      /* Cinza suave para textos secundários */
+    
+    /* Accent Colors - Otimizados para dark */
+    --accent-1: 142 71% 45%;         /* Verde agricultura */
+    --accent-2: 32 95% 68%;          /* Laranja produção */
+    --accent-3: 214 76% 66%;         /* Azul recria */
+    --danger: 0 84% 65%;             /* Vermelho alertas */
+    
+    /* Shadcn dark compatibility */
+    --background: var(--bg-main);
+    --foreground: var(--text-primary);
+    --card: var(--bg-surface);
+    --card-foreground: var(--text-primary);
+    --popover: var(--bg-surface);
+    --popover-foreground: var(--text-primary);
+    --primary: var(--accent-1);
+    --primary-foreground: 0 0% 5%;
+    --primary-glow: 142 71% 55%;
+    --secondary: 0 0% 10%;           /* Cinza escuro */
+    --secondary-foreground: var(--text-primary);
+    --muted: 0 0% 10%;               /* Cinza escuro */
+    --muted-foreground: var(--text-secondary);
+    --accent: var(--accent-3);
+    --accent-foreground: 0 0% 5%;
+    --destructive: var(--danger);
+    --destructive-foreground: 0 0% 5%;
+    --border: 0 0% 20%;              /* Cinza suave para bordas */
+    --input: 0 0% 8%;                /* Cinza bem escuro para inputs */
+    --ring: var(--accent-1);
+    --success: var(--accent-1);
+    --warning: 45 93% 68%;
+    
+    /* Phase colors optimized for dark */
+    --phase-recria: var(--accent-3);
+    --phase-crescimento: var(--accent-1);
+    --phase-producao: var(--accent-2);
+    
+    --sidebar-background: 0 0% 3%;   /* Cinza quase preto */
+    --sidebar-foreground: var(--text-primary);
+    --sidebar-primary: var(--accent-1);
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 12%;      /* Cinza suave */
+    --sidebar-accent-foreground: var(--text-primary);
+    --sidebar-border: 0 0% 18%;      /* Cinza suave para bordas */
+    --sidebar-ring: var(--accent-1);
+  }
+
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    :root {
+      --text-primary: 0 0% 95%;
+      --text-secondary: 0 0% 85%;
+      --border: 0 0% 25%;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --transition-smooth: none;
+      --transition-bounce: none;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Hero Section */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  /* Phase Cards - Adaptáveis ao tema */
+  .phase-recria {
+    background: linear-gradient(135deg, hsl(var(--phase-recria) / 0.15), hsl(var(--phase-recria) / 0.08));
+    border-left: 4px solid hsl(var(--phase-recria));
+    transition: all 0.3s ease;
+  }
+  
+  .phase-crescimento {
+    background: linear-gradient(135deg, hsl(var(--phase-crescimento) / 0.15), hsl(var(--phase-crescimento) / 0.08));
+    border-left: 4px solid hsl(var(--phase-crescimento));
+    transition: all 0.3s ease;
+  }
+  
+  .phase-producao {
+    background: linear-gradient(135deg, hsl(var(--phase-producao) / 0.15), hsl(var(--phase-producao) / 0.08));
+    border-left: 4px solid hsl(var(--phase-producao));
+    transition: all 0.3s ease;
+  }
+
+  /* Campo theme specific styles */
+  :root .phase-recria {
+    background: linear-gradient(135deg, hsl(var(--phase-recria) / 0.2), hsl(var(--phase-recria) / 0.1));
+  }
+  
+  :root .phase-crescimento {
+    background: linear-gradient(135deg, hsl(var(--phase-crescimento) / 0.2), hsl(var(--phase-crescimento) / 0.1));
+  }
+  
+  :root .phase-producao {
+    background: linear-gradient(135deg, hsl(var(--phase-producao) / 0.2), hsl(var(--phase-producao) / 0.1));
+  }
+  
+  /* Glass Effect */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Hover Effects */
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+  
+  /* Page Transitions */
+  .page-transition {
+    animation: fadeInUp 0.6s ease-out;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
